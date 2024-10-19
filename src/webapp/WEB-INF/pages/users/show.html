@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://thymeleaf.org">
+    <title>All Users</title>
+</head>
+<h2>User Info</h2>
+<body>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Age</th>
+        <th>Back</th>
+        <th>Edit user</th>
+        <th>Delete user</th>
+
+    </tr>
+    <tr>
+        <td th:utext="${user.getId()}">id</td>
+        <td th:utext="${user.getName()}">firstname</td>
+        <td th:utext="${user.getSurname()}">age</td>
+        <td th:utext="${user.getAge()}">email</td>
+        <td>
+            <a href="/users/">Back</a>
+        </td>
+        <td>
+            <a th:href="@{/users/edit?id={id}(id=${user.getId()})}">Edit</a>
+        </td>
+        <td>
+            <form th:method="DELETE" th:action="@{/users/delete?id={id}(id=${user.getId()})}">
+                <input type="submit" value="Delete"/>
+        </td>
+    </tr>
+
+
+</table>
+
+
+</body>
+</html>
